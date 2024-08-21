@@ -28,6 +28,7 @@
 - cache-manager
 - Swagger
 - class-validator
+- jwt
 
 ## Separação de arquivos
 
