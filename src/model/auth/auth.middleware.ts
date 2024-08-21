@@ -17,14 +17,11 @@ export class AuthMiddleware implements NestMiddleware {
     const token = this.extractTokenFromHeader(req);
 
     try {
-      if (token) {
-        const user = await this.jwtService.verifyAsync(token, {
-          secret: process.env.HASH_SECRET_TOKEN,
-        });
-
-        this.logger.log(`[${new Date().toISOString()}] ${method} ${path} - User ID: ${user?.id}`);
-        req['user'] = user
-      }
+      const user = await this.jwtService.verifyAsync(token, {
+        secret: process.env.HASH_SECRET_TOKEN,
+      });
+      this.logger.log(`[${new Date().toISOString()}] ${method} ${path} - User ID: ${user?.id}`);
+      req['user'] = user
     } catch (error) {
       throw new UnauthorizedException();
     }

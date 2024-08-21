@@ -5,8 +5,8 @@ export class CreateAuthDto {
     @IsString()
     @IsNotEmpty()
     @ApiProperty({
-        description: 'The username of auth',
-        example: 'teddy',
+        description: 'The username of the auth',
+        example: 'user.new',
     })
     @Length(6)
     username: string;
@@ -14,7 +14,7 @@ export class CreateAuthDto {
     @IsString()
     @IsNotEmpty()
     @ApiProperty({
-        description: 'The password of auth',
+        description: 'The password of the auth',
         example: 'process',
     })
     @Length(6)
@@ -23,8 +23,8 @@ export class CreateAuthDto {
     @IsString()
     @IsNotEmpty()
     @ApiProperty({
-        description: 'The name of user',
-        example: 'process',
+        description: 'The name of the user',
+        example: 'Maria',
     })
     name: string;
 }

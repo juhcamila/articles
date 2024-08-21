@@ -10,7 +10,7 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @ApiOperation({ summary: 'Create user auth' })
-  @ApiResponse({ status: 201, description: 'Url short' })
+  @ApiResponse({ status: 201, description: 'user' })
   @Post('/user/signup')
   async create(@Body() createAuthDto: CreateAuthDto) {
     return await this.authService.create(createAuthDto);
