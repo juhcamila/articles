@@ -4,6 +4,8 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { getSequelizeConfig } from './database/mysql';
 import { AuthMiddleware } from './model/auth/auth.middleware';
 import { AuthModule } from './model/auth/auth.module';
+import { TutorialModule } from './model/tutorial/tutorial.module';
+import { TutorialController } from './model/tutorial/tutorial.controller';
 
 @Module({
   imports: [
@@ -15,7 +17,8 @@ import { AuthModule } from './model/auth/auth.module';
       useFactory: getSequelizeConfig,
       inject: [ConfigService],
     }),
-    AuthModule
+    AuthModule,
+    TutorialModule
   ],
   controllers: [],
   providers: [],
@@ -24,6 +27,6 @@ export class AppModule {
   configure(consumer: MiddlewareConsumer) {
     consumer
       .apply(AuthMiddleware)
-      .forRoutes({ path: '/tutorial*', method: RequestMethod.ALL });
+      .forRoutes(TutorialController)
   }
 }

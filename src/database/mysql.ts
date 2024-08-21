@@ -1,6 +1,7 @@
 import { ConfigService } from '@nestjs/config';
 import { SequelizeModuleOptions } from '@nestjs/sequelize';
 import { UserEntity } from '../model/auth/entities/auth.entity';
+import { TutorialEntity } from 'src/model/tutorial/entities/tutorial.entity';
 
 export const getSequelizeConfig = (
   configService: ConfigService,
@@ -14,8 +15,10 @@ export const getSequelizeConfig = (
     database: configService.get<string>('DATABASE_NAME'),
     synchronize: configService.get<boolean>('DATABASE_SYNCHRONIZE'),
     autoLoadModels: true,
+    timezone: "-03:00",
     models: [
-      UserEntity
-    ], 
+      UserEntity,
+      TutorialEntity
+    ],
   };
 };

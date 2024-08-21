@@ -5,15 +5,15 @@ export class LoginDto {
     @IsString()
     @IsNotEmpty()
     @ApiProperty({
-        description: 'The username of auth',
-        example: 'teddy',
+        description: 'The username of the auth',
+        example: 'user.new',
     })
     username: string;
 
     @IsString()
     @IsNotEmpty()
     @ApiProperty({
-        description: 'The password of auth',
+        description: 'The password of the auth',
         example: 'process',
     })
     password: string;

@@ -1,4 +1,5 @@
-import { Column, CreatedAt, DataType, Model, Table, UpdatedAt } from "sequelize-typescript";
+import { Column, CreatedAt, DataType, HasMany, Model, Table, UpdatedAt } from "sequelize-typescript";
+import { TutorialEntity } from "src/model/tutorial/entities/tutorial.entity";
 
 @Table({
     tableName: 'users',
@@ -27,4 +28,7 @@ export class UserEntity extends Model<UserEntity> {
     allowNull: false,
   })
   updatedAt!: Date;
+
+  @HasMany(() => TutorialEntity)
+  tutorials: TutorialEntity
 }
