@@ -10,8 +10,8 @@ import { CacheModule } from '@nestjs/cache-manager';
   imports: [
     SequelizeModule.forFeature([TutorialEntity]),
     CacheModule.register({
-      ttl: 10000, // seconds
-      max: 10, // maximum number of items in cache
+      ttl: 60000,
+      max: 50,
     })   
   ],
   controllers: [TutorialController],
