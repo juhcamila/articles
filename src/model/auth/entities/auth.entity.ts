@@ -1,5 +1,5 @@
 import { Column, CreatedAt, DataType, HasMany, Model, Table, UpdatedAt } from "sequelize-typescript";
-import { TutorialEntity } from "src/model/tutorial/entities/tutorial.entity";
+import { TutorialEntity } from "../../../model/tutorial/entities/tutorial.entity";
 
 @Table({
     tableName: 'users',

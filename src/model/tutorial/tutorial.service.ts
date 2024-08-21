@@ -22,7 +22,7 @@ export class TutorialService {
         title: tutorial.title,
         createdAt: moment(tutorial.createdAt).toString(),
         updatedAt: moment(tutorial.updatedAt).toString(),
-        user: tutorial.user?.name
+        user: tutorial['user.name']
       }
     })
   }
@@ -48,6 +48,8 @@ export class TutorialService {
   async update(id: number, updateTutorialDto: UpdateTutorialDto, userId: number): Promise<TutorialEntity> {
     const tutorial = await this.tutorialRepository.findByUser(id, userId);
     if (!tutorial) throw new NotFoundException()
+    const tutorialByTitle = await this.tutorialRepository.findByTitle(updateTutorialDto.title)
+    if (tutorialByTitle && tutorialByTitle.id !== id) throw new HttpException('Tutorial already exists', HttpStatus.CONFLICT);
     return await this.tutorialRepository.update(tutorial, updateTutorialDto)
   }
 

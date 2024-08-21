@@ -1,7 +1,7 @@
 import { ConfigService } from '@nestjs/config';
 import { SequelizeModuleOptions } from '@nestjs/sequelize';
 import { UserEntity } from '../model/auth/entities/auth.entity';
-import { TutorialEntity } from 'src/model/tutorial/entities/tutorial.entity';
+import { TutorialEntity } from '../model/tutorial/entities/tutorial.entity';
 
 export const getSequelizeConfig = (
   configService: ConfigService,

@@ -9,7 +9,7 @@ export class AuthRepository {
     async create(body: CreateAuthDto): Promise<UserEntity> {
         return await UserEntity.create(<CreateAuthDto>{
             username: body.username,
-            name: body.username,
+            name: body.name,
             password: body.password
         })
     }
